@@ -1,4 +1,4 @@
-getComputerChoice = function() {
+function getComputerChoice() {
     let choiceIndex = Math.floor(Math.random()*3)+1;
     let computerChoice;
 
