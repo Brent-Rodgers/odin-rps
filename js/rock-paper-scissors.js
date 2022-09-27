@@ -18,7 +18,7 @@ function getPlayerChoice(){
     playerChoice = prompt("Please pick Rock, Paper, or Scissors!").toLowerCase();
 
     while(!valid(playerChoice)) {
-        playerChoice = prompt("Please pick Rock, Paper, or Scissors!  Watch your spelling!").toLowerCase();
+        playerChoice = prompt("Please pick Rock, Paper, or Scissors! Watch your spelling!").toLowerCase();
     }
 }
 
@@ -32,5 +32,33 @@ function valid(move){
 }
 
 function playRound(playerSelection, computerSelection) {
+    const lossMessage = "YOU LOSE...";
+    const winMessage = "YOU WIN!!!";
+    const drawMessage = "It's a draw."
 
+    if (playerSelection === computerSelection) {
+        return(drawMessage)
+    } else if (playerSelection === "rock") {
+        if (computerSelection === "paper") {
+            return(lossMessage);
+        } else {
+            return(winMessage);
+        }
+    } else if (playerSelection === "paper"){
+        if (computerSelection === "scissors") {
+            return(lossMessage);
+        } else {
+            return(winMessage);
+        }
+    } else if (playerSelection === "scissors") {
+        if(computerSelection === "rock") {
+            return(lossMessage);
+        } else {
+            return(winMessage);
+        }
+    }
 }
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
