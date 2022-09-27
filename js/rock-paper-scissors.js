@@ -12,3 +12,25 @@ function getComputerChoice() {
 
     return(computerChoice);
 }
+
+function getPlayerChoice(){
+    let playerChoice = ""
+    playerChoice = prompt("Please pick Rock, Paper, or Scissors!").toLowerCase();
+
+    while(!valid(playerChoice)) {
+        playerChoice = prompt("Please pick Rock, Paper, or Scissors!  Watch your spelling!").toLowerCase();
+    }
+}
+
+function valid(move){
+    console.log(move)
+    if (move == "rock" | move == "paper" | move == "scissors")
+        return(true);
+    else {
+        return(false);
+    }    
+}
+
+function playRound(playerSelection, computerSelection) {
+
+}
