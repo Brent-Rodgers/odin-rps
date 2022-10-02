@@ -61,34 +61,41 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
+const buttons = document.querySelectorAll("button")
+let playerScore = 0;
+let computerScore = 0;
 
-function playMatch(){
-    let playerWins = 0;
-    let computerWins = 0;
-    
-    for (let i = 0; i < 3; i++) {
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
-        result = playRound(playerSelection, computerSelection);
-    
-        switch(result){
-            case "win":
-                playerWins++;
-                console.log("Won the round!");
-                break;
-            case "lose":
-                computerWins++;
-                console.log("Lost the round...");
-                break;
-            case "draw":
-                console.log("Draw");
-                break;
-            default:
-                break;
-        }
-     }
-    
-     console.log(`Player Wins: ${playerWins}`);
-     console.log(`Computer Wins: ${computerWins}`);
+buttons.forEach(button => button.addEventListener('click', () => {
+    let playerChoice = button.getAttribute('data-choice');
+    let computerChoice = getComputerChoice();
+    let result = playRound(playerChoice, computerChoice);
 
+    if (result === "win") {
+        playerScore += 1;
+    } else if (result === "lose") {
+        computerScore += 1;
+    }
+
+    document.querySelector("#player-choice").textContent = playerChoice;
+    document.querySelector("#computer-choice").textContent = computerChoice;
+    document.querySelector("#result").textContent = result;
+    displayScores(playerScore, computerScore);
+
+    if(playerScore >=5) {
+        alert("You Won!  \n\n ...resetting scores...");
+        playerScore = 0;
+        computerScore = 0;
+        displayScores(playerScore, computerScore);
+    } else if(computerScore >=5) {
+        alert("Computer Won!  \n\n ...resetting scores...");
+        playerScore = 0;
+        computerScore = 0;
+        displayScores(playerScore, computerScore);
+    }
+}
+))
+
+function displayScores(playerScore, computerScore){
+    document.querySelector("#player-score").textContent = playerScore;
+    document.querySelector("#computer-score").textContent = computerScore;
 }

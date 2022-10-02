@@ -3,8 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors!</title>
-    <script src = "js/rock-paper-scissors.js"></script>
+    <script src = "js/rock-paper-scissors.js" defer></script>
 </head>
 <body>
+    <div id = "button-container">
+        <button data-choice="rock">Rock</button>
+        <button data-choice="paper">Paper</button>
+        <button data-choice="scissors">Scissors</button>
+    </div>
+    <div id = "results-container">
+        <h2>Results:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Player Choice
+                    </th>
+                    <th>
+                        Computer Choice
+                    </th>
+                    <th>
+                        Result
+                    </th>
+                    <th>
+                        Player Score
+                    </th>
+                    <th>
+                        Computer Score
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id = "player-choice">
+                        -
+                    </td>
+                    <td id = "computer-choice">
+                        -
+                    </td>
+                    <td id = "result">
+                        -
+                    </td>
+                    <td id = "player-score">
+                        -
+                    </td>
+                    <td id = "computer-score">
+                        -
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
